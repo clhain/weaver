@@ -55,9 +55,8 @@ fn read_file_to_string<P: AsRef<Path>>(path: P) -> io::Result<String> {
 
 
 #[library_benchmark]
-
-let yaml_contents = load_yaml_contents();
-fn bench_registry_generate(yaml_contents: Vec<(String, String)>) {
+fn bench_registry_generate() {
+    let yaml_contents = load_yaml_contents();
     let mut registry = SemConvRegistry::default();
     for (content, provenance) in &yaml_contents {
         let _result = registry
