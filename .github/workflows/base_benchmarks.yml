@@ -28,4 +28,5 @@ jobs:
           --err \
           --adapter json \
           --github-actions '${{ secrets.GITHUB_TOKEN }}' \
-          bencher run --adapter rust_criterion "cargo bench -- default"
+          --adapter rust_criterion \
+          "cargo bench -- default"
