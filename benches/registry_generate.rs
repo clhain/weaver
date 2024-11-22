@@ -76,13 +76,3 @@ criterion_group!(
     config = Criterion::default();
     targets = bench_registry_generate
 );
-
-pub fn iai_benchmark_generate() -> () {
-    let yaml_contents = load_yaml_contents();
-    let mut registry = SemConvRegistry::default();
-    for (content, provenance) in &yaml_contents {
-        let _result = registry
-            .add_semconv_spec_from_string(&provenance, &content)
-            .into_result_failing_non_fatal();
-    }
-}

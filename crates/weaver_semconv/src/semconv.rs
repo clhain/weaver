@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: Apache-2.0
 
 //! Semantic convention specification.
+use std::thread;
+use std::time::Duration;
 
 use crate::group::GroupSpec;
 use crate::Error;
@@ -77,6 +79,9 @@ impl SemConvSpec {
     ///
     /// The [`SemConvSpec`] or an [`Error`] if the semantic convention spec is invalid.
     pub fn from_string(spec: &str) -> WResult<SemConvSpec, Error> {
+        // Introduce some latency for benchmark
+        let duration = Duration::from_nanos(100);
+        thread::sleep(duration);
         match serde_yaml::from_str::<SemConvSpec>(spec).map_err(|e| Error::InvalidSemConvSpec {
             path_or_url: "<str>".to_owned(),
             line: None,

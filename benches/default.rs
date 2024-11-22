@@ -1,3 +1,4 @@
+//! Benchmark tests for weaver semconv crate
 use criterion::criterion_main;
 
 mod registry_generate;
