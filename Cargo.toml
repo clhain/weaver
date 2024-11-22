@@ -107,9 +107,6 @@ iai-callgrind = "0.14.0"
 name = "default"
 harness = false
 
-[[bench]]
-name = "registry_generate_iai"
-harness = false
 
 [profile.release]
 lto = true
